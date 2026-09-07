@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Listotal</string>
+    <string name="title_activity_main">Listotal</string>
+    <string name="package_name">com.mercyphall.inventariohogar</string>
+    <string name="custom_url_scheme">com.mercyphall.inventariohogar</string>
+</resources>

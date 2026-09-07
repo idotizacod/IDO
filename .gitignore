@@ -1,0 +1,43 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencias y build
+node_modules
+dist
+dist-ssr
+*.local
+dev-server.log
+
+# SECRETOS — NUNCA subir la firma de Android
+android/keystore.properties
+android/release-keys/
+android/local.properties
+*.jks
+*.keystore
+
+# APKs construidos (no van al repo)
+*.apk
+*.aab
+
+# Scripts y reportes de inspección locales
+contrast.cjs
+shot.cjs
+shot.js
+contrast-report*.txt
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

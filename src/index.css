@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ido-canvas: #f8f9fa;
+  --ido-bone: #f2efe7;
+  --ido-ink: #0a0a0a;
+  --ido-dark: #121212;
+  --ido-grid: #e2e8f0;
+  --ido-text: #1a1a1a;
+  --ido-accent: #d32f2f;
+  --ido-margin: #e53935;
+  --ido-display: 'Special Elite', 'Courier New', monospace;
+  --ido-mono: 'Courier New', Courier, 'IBM Plex Mono', monospace;
+}
+
+body {
+  font-family: var(--ido-mono);
+  background-color: var(--ido-ink);
+  background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%220.05%22/%3E%3C/svg%3E');
+  background-size: 140px 140px;
+}
+
+/* Textura de papel (hueso Idotiza) sobre cualquier tarjeta.
+   Permanece CLARO incluso en tema oscuro (papel con tinta sobre fondo negro). */
+.ido-paper {
+  background-color: var(--ido-bone);
+  background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%220.06%22/%3E%3C/svg%3E');
+  background-size: 140px 140px;
+  color: var(--ido-text);
+}
+
+/* Borde hecho a mano (marca Idotiza) */
+.ido-hand {
+  border: 1.5px solid #2a2a2a;
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.ido-hand-red {
+  border: 1.5px solid var(--ido-accent);
+  border-radius: 15px 255px 15px 225px / 225px 15px 255px 15px;
+  box-shadow: 2px 2px 0 rgba(211, 47, 47, 0.25);
+}
+
+/* Texto con tinta sobre papel (máquina de escribir) */
+.ido-scratch {
+  font-family: var(--ido-display);
+  text-shadow: 1.2px 0 0 rgba(211, 47, 47, 0.5), -0.8px 0 0 rgba(255, 255, 255, 0.15);
+  letter-spacing: 0.06em;
+}
+
+.ido-display {
+  font-family: var(--ido-display);
+}
+
+/* LED rojo de estudio (encendido) */
+.ido-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--ido-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--ido-accent);
+  animation: ido-pulse 2s infinite;
+}
+
+@keyframes ido-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ido-dot { animation: none; }
+}
+
+/* CONTRASTE DENTRO DE PANELES DE PAPEL
+   El fondo de papel es SIEMPRE claro (incluso en tema oscuro), así que cualquier
+   texto gris claro (slate-400/500, incluso los dark:text-slate-*) debe volverse
+   tinta oscura para ser legible sobre el papel. */
+.ido-paper .text-slate-400,
+.ido-paper .dark\:text-slate-400,
+.ido-paper .dark\:text-slate-500 {
+  color: #5a6374 !important; /* slate-600: tinta oscura legible sobre papel */
+}
+.ido-paper .text-slate-500 {
+  color: #464e5d !important;
+}
+
+/* DENTRO DEL PAPEL: los campos, labels, headers y badges slate pasan a papel claro.
+   El modo oscuro vive en el fondo externo (negro), NO en las tarjetas. Los
+   CTAs/acciones de color (blue/emerald/green/red, no slate) se dejan intactos:
+   mantienen su fondo y su texto claro ya contrastado. */
+.ido-paper [class*="dark:bg-slate-"] {
+  background-color: var(--ido-bone) !important;
+}
+.ido-paper [class*="dark:hover:bg-slate-"] {
+  background-color: var(--ido-bone) !important;
+}
+
+/* Toda tinta clara dark:text-slate-* dentro del papel pasa a tinta oscura real.
+   (Los acentos dark:text-blue-* se excepcionan más abajo: los CTAs usan
+   dark:text-blue-200 / dark:text-emerald-200 que NO son slate y por eso se
+   conservan intactos.) */
+.ido-paper .dark\:text-slate-100,
+.ido-paper .dark\:text-slate-200,
+.ido-paper .dark\:text-slate-300 {
+  color: var(--ido-text) !important;
+}
+.ido-paper .dark\:text-blue-400,
+.ido-paper .dark\:text-blue-500 {
+  color: var(--ido-accent) !important;
+}
+
+/* Dropdowns nativos: papel con tinta (legibles en cualquier tema) */
+select option {
+  background-color: var(--ido-bone);
+  color: var(--ido-text);
+}
