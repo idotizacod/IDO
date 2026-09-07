@@ -1,16 +1,47 @@
-# React + Vite
+# IDO
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Inventario del hogar con estética **Idotiza** (papel con tinta sobre fondo negro,
+letra Special Elite, LED de estudio rojo).
 
-Currently, two official plugins are available:
+> ido = abstraerse · tiza = perfecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Instalar la app (APK Android)
 
-## React Compiler
+La versión actual se descarga desde GitHub Releases:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [Descargar APK](https://github.com/idotizacod/IDO/releases) (botón **IDO-2.0-release.apk**)
+- Cada nueva versión se publica ahí como un asset de su Release.
 
-## Expanding the Oxlint configuration
+El APK está firmado con la misma keystore de siempre, por lo que las actualizaciones
+se instalan sobre la versión anterior sin desinstalar.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Desarrollo web
+
+```bash
+npm install
+npm run dev        # servidor local con recarga en caliente
+npm run build      # build de producción en dist/
+```
+
+## Build Android (APK)
+
+```bash
+npm run build
+npx cap sync android
+cd android
+.\gradlew.bat assembleRelease   # genera app/build/libs o outputs/apk
+```
+
+Requisitos: JDK 21, Android SDK (ruta en `android/local.properties`).
+
+## Stack
+
+- React 19 + Vite
+- Tailwind CSS 3
+- Capacitor 8 (Android)
+- Almacenamiento local (localStorage) — sin backend
+
+## Repositorio
+
+- Rama principal: `main`
+- Las versiones usan tags (`v2.0`, ...) con su Release y APK adjunto.
