@@ -1,6 +1,6 @@
-# IDO
+# IDOcash
 
-Inventario del hogar con estética **Idotiza** (papel con tinta sobre fondo negro,
+Finanzas del hogar con estética **Idotiza** (papel con tinta sobre fondo negro,
 letra Special Elite, LED de estudio rojo).
 
 > ido = abstraerse · tiza = perfecto
@@ -9,7 +9,7 @@ letra Special Elite, LED de estudio rojo).
 
 La versión actual se descarga desde GitHub Releases:
 
-- [Descargar APK](https://github.com/idotizacod/IDO/releases) (botón **IDO-2.0-release.apk**)
+- [Descargar APK](https://github.com/idotizacod/IDOcash/releases) (botón **IDOcash-3.0-release.apk**)
 - Cada nueva versión se publica ahí como un asset de su Release.
 
 El APK está firmado con la misma keystore de siempre, por lo que las actualizaciones
@@ -44,4 +44,4 @@ Requisitos: JDK 21, Android SDK (ruta en `android/local.properties`).
 ## Repositorio
 
 - Rama principal: `main`
-- Las versiones usan tags (`v2.0`, ...) con su Release y APK adjunto.
+- Las versiones usan tags (`v3.0`, ...) con su Release y APK adjunto.

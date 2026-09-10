@@ -20,7 +20,7 @@ const SETTINGS_KEY = 'home-inventory-settings-v1';
 const COLLAPSE_KEY = 'home-inventory-collapsed-v1';
 
 // Carpeta donde se guardan las exportaciones en Android
-const EXPORT_DIR = 'InventarioHogar';
+const EXPORT_DIR = 'IDOCash';
 const isNative = Capacitor.isNativePlatform();
 
 // Convierte base64 (UTF-8) a texto, devuelto por los plugins nativos
@@ -57,7 +57,7 @@ const CURRENCIES = {
 
 const TRANSLATIONS = {
   es: {
-    appTitle: 'idotiza',
+    appTitle: 'IDOcash',
     totalValue: 'Valor Total',
     settings: 'Ajustes',
     settingsTitle: 'Ajustes',
@@ -121,7 +121,7 @@ const TRANSLATIONS = {
     dark: 'Oscuro',
     exportData: 'Exportar datos',
     importData: 'Importar datos',
-    exportDesc: 'En Android se guarda en la carpeta Documentos/InventarioHogar. En la PC se descarga el archivo.',
+    exportDesc: 'En Android se guarda en la carpeta Documentos/IDOCash. En la PC se descarga el archivo.',
     importDesc: 'En Android abre el selector de archivos del sistema. En la PC se selecciona el archivo.',
     exportSuccess: 'Datos guardados en: {path}',
     exportFolderExists: 'La carpeta de exportación ya existía.',
@@ -136,7 +136,7 @@ const TRANSLATIONS = {
     debtsExcluded: 'Deudas e inversiones no se incluyen en el valor total.'
   },
   en: {
-    appTitle: 'idotiza',
+    appTitle: 'IDOcash',
     totalValue: 'Total Value',
     settings: 'Settings',
     settingsTitle: 'Settings',
@@ -200,7 +200,7 @@ const TRANSLATIONS = {
     dark: 'Dark',
     exportData: 'Export data',
     importData: 'Import data',
-    exportDesc: 'On Android it is saved in the Documents/InventarioHogar folder. On PC the file is downloaded.',
+    exportDesc: 'On Android it is saved in the Documents/IDOCash folder. On PC the file is downloaded.',
     importDesc: 'On Android it opens the system file picker. On PC the file is selected.',
     exportSuccess: 'Data saved at: {path}',
     exportFolderExists: 'The export folder already existed.',
@@ -689,13 +689,13 @@ export default function App() {
   // --- EXPORTACIÓN / IMPORTACIÓN ---
   const handleExport = async () => {
     const payload = {
-      app: 'inventario-hogar',
-      version: 1,
+      app: 'idocash',
+      version: 2,
       exportedAt: new Date().toISOString(),
       households: appState.households
     };
     const json = JSON.stringify(payload, null, 2);
-    const filename = `inventario-${new Date().toISOString().slice(0, 10)}.json`;
+    const filename = `idocash-${new Date().toISOString().slice(0, 10)}.json`;
 
     if (isNative) {
       try {
