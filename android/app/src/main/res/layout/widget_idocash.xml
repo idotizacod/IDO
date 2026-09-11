@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#f8f9fa"
+    android:padding="12dp"
+    android:elevation="4dp">
+
+    <!-- Header Ultra-Studio -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="4dp"
+            android:layout_height="14dp"
+            android:background="#d32f2f" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="IDOcash // HOGAR"
+            android:textColor="#1a1a1a"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.12" />
+
+        <TextView
+            android:id="@+id/widget_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#d32f2f"
+            android:text="GLOBAL"
+            android:textColor="#ffffff"
+            android:textSize="8sp"
+            android:fontFamily="monospace"
+            android:paddingHorizontal="7dp"
+            android:paddingVertical="3dp" />
+    </LinearLayout>
+
+    <!-- Display Ultra-Studio -->
+    <LinearLayout
+        android:id="@+id/widget_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        android:padding="10dp"
+        android:background="#0a0a0a">
+
+        <TextView
+            android:id="@+id/widget_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="$ 0"
+            android:textColor="#d32f2f"
+            android:textSize="18sp"
+            android:fontFamily="monospace"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/widget_caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="PRESUPUESTO GLOBAL"
+            android:textColor="#e2e8f0"
+            android:textSize="8sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.08" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/widget_house"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Mi Hogar"
+        android:textColor="#1a1a1a"
+        android:textSize="10sp"
+        android:fontFamily="monospace"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/widget_empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Abre IDOcash para ver tu hogar aquí"
+        android:textColor="#1a1a1a"
+        android:alpha="0.4"
+        android:textSize="10sp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="#f8f9fa"
+        android:visibility="gone" />
+</LinearLayout>

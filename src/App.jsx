@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { CapgoFilePicker } from '@capgo/capacitor-file-picker';
+import { Preferences } from '@capacitor/preferences';
 import { PlusCircle, Trash2, Tag, DollarSign, Package, Home, Pencil, ShoppingCart, RotateCcw, Info, CalendarDays, Settings, Download, Upload, X, Check, ChevronDown, ChevronRight, ArrowUpDown } from 'lucide-react';
 
 const TABS = {
@@ -387,6 +388,26 @@ export default function App() {
   const activeHousehold = useMemo(() => {
     return appState.households.find(h => h.id === appState.activeHouseholdId) ?? appState.households[0];
   }, [appState]);
+
+  // --- PUENTE NATIVO: resumen para el widget de IDOcash ---
+  useEffect(() => {
+    const writeSummary = () => {
+      const house = appState.households.find(h => h.id === appState.activeHouseholdId) ?? appState.households[0];
+      if (!house) return;
+      const sum = (house.inventory ?? [])
+        .filter(item => item.tab !== TABS.DEUDAS && item.tab !== TABS.INVERSIONES)
+        .reduce((acc, item) => acc + item.price * (item.quantity ?? 1), 0);
+      const value = JSON.stringify({
+        name: house.name || 'Mi Hogar',
+        sum: Math.round(sum * 100) / 100,
+        currency: settings.currency ?? 'CLP',
+        items: (house.inventory ?? []).length,
+        at: Date.now()
+      });
+      try { Preferences.set({ key: 'idocash_summary', value }); } catch { /* no nativo */ }
+    };
+    writeSummary();
+  }, [appState, settings]);
 
   // --- SINCRONIZACIÓN FALTANTES <-> EXISTENTES ---
   const isShopping = isComprasTab(activeTab);

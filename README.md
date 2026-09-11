@@ -9,7 +9,7 @@ letra Special Elite, LED de estudio rojo).
 
 La versión actual se descarga desde GitHub Releases:
 
-- [Descargar APK](https://github.com/idotizacod/IDOcash/releases) (botón **IDOcash-3.0-release.apk**)
+- [Descargar APK](https://github.com/idotizacod/IDOcash/releases) (botón **IDOcash-3.1-release.apk**)
 - Cada nueva versión se publica ahí como un asset de su Release.
 
 El APK está firmado con la misma keystore de siempre, por lo que las actualizaciones
